@@ -36,6 +36,12 @@ For running an client docker container use
 docker run --network=host clinet-scheduler
 ```
 
+For processing result you can mount a folder
+
+```
+docker run --network=host -v=<path-to-result-folder>:/usr/src/result clinet-scheduler
+```
+
 # Run Example
 First you should load server-side with model using followed command with parameters
 ```
@@ -45,5 +51,5 @@ docker run --publish 9900:9900 server-scheduler --actor-type='fc'
 Second you should start client-side using command with parameters
 
 ```
-docker run --network=host client-scheduler --num-episodes=1000 --wfs-name=Montage_100
+docker run --network=host -v=/home/user/results/:/usr/src/result client-scheduler --num-episodes=1000 --wfs-name=Montage_100
 ```
